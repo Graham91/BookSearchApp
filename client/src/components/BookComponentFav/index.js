@@ -2,7 +2,9 @@ import React from "react";
 import "./BookComponentFav.css";
 
 function BookComponentFav(props) {
-  const deletebook = (event) => {};
+  const deletebook = (event) => {
+    props.delete(event);
+  };
   return (
     <div className="bookcard">
       <div>
@@ -18,7 +20,7 @@ function BookComponentFav(props) {
       </div>
       <a href={props.link}>read more</a>
       <div>
-        <button value={props.value} onClick={deletebook}>
+        <button value={props.title} onClick={deletebook}>
           Delete
         </button>
       </div>

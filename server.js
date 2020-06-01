@@ -22,11 +22,24 @@ app.get("/api/sendData", function (req, res) {
   });
 });
 
+app.put("/api/delete", function (req, res) {
+  console.log(req.body.name);
+  db.deleteOne({ title: req.body.name }, function (err) {
+    if (!err) {
+      console.log("success");
+      res.send("success");
+    } else {
+      console.log(err);
+    }
+  });
+});
+
 app.put("/api/add", function (req, res) {
   db.create(req.body)
     .then(function (book) {
       // View the added result in the console
       console.log(book);
+      res.send(book);
     })
     .catch(function (err) {
       // If an error occurred, log it

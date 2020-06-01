@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import BookComponent from "../BookComponent";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 function BookContainer(props) {
+  const [toHome, setToHome] = useState(false);
   const BookList = props.booklist;
 
   const savebook = (event) => {
@@ -22,6 +24,7 @@ function BookContainer(props) {
       .then(function (response) {
         // handle success
         console.log(response);
+        setToHome(true);
       })
       .catch(function (error) {
         // handle error
@@ -31,6 +34,7 @@ function BookContainer(props) {
 
   return (
     <div className="card">
+      {toHome ? <Redirect to="/favorites" /> : null}
       {BookList.map((book, index) => (
         <BookComponent
           key={index}
