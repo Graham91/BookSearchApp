@@ -1,12 +1,28 @@
 import React from "react";
 import "./BookComponentFav.css";
+import htmlToImage from "html-to-image";
 
 function BookComponentFav(props) {
   const deletebook = (event) => {
     props.delete(event);
   };
+  const getimage = () => {
+    var htmlToImage = require("html-to-image");
+    var node = document.getElementById("bookimage");
+
+    htmlToImage
+      .toPng(node)
+      .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        document.body.appendChild(img);
+      })
+      .catch(function (error) {
+        console.error("oops, something went wrong!", error);
+      });
+  };
   return (
-    <div className="bookcard">
+    <div className="bookcard" id="bookimage">
       <div>
         <img
           src={props.imgUrl}
@@ -23,6 +39,7 @@ function BookComponentFav(props) {
         <button value={props.title} onClick={deletebook}>
           Delete
         </button>
+        {/* <button onClick={getimage}>getimg</button> */}
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ class BookSearch extends Component {
       <div className="card">
         <Searchbar search={this.search} />
         <BookContainer booklist={this.state.booklist} />
-        <button onClick={this.Findbooks}>passbooks</button>
+        {/* <button onClick={this.Findbooks}>passbooks</button> */}
       </div>
     );
   }

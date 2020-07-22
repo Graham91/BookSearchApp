@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Favoritebook.css";
 import BookComponentFav from "../BookComponentFav";
 import axios from "axios";
+import htmlToImage from "html-to-image";
 
 class Favoritebooks extends Component {
   state = {
@@ -15,6 +16,22 @@ class Favoritebooks extends Component {
       console.log(this.state);
     });
   }
+
+  // getimage = () => {
+  //   var htmlToImage = require("html-to-image");
+  //   var node = document.getElementById("bookimage");
+
+  //   htmlToImage
+  //     .toPng(node)
+  //     .then(function (dataUrl) {
+  //       var img = new Image();
+  //       img.src = dataUrl;
+  //       document.body.appendChild(img);
+  //     })
+  //     .catch(function (error) {
+  //       console.error("oops, something went wrong!", error);
+  //     });
+  // };
 
   delete = (event) => {
     let removetitle = event.target.value;
@@ -34,7 +51,8 @@ class Favoritebooks extends Component {
 
   render() {
     return (
-      <div className="card">
+      <div className="card" id="bookimage">
+        {/* <button onClick={this.getimage}>getimg</button> */}
         {this.state.Favoritelist.map((book, index) => (
           <BookComponentFav
             key={index}

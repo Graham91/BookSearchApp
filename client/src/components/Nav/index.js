@@ -25,7 +25,7 @@ class Nav extends Component {
               className={this.setActiveNavItem("/")}
               to="/"
             >
-              Seach
+              Search
             </Link>
           </li>
 

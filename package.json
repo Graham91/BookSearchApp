@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "express": "^4.16.3",
+    "html-to-image": "^0.1.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.9.16",
     "react-router-dom": "^5.2.0"
