@@ -11,7 +11,10 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-mongoose.connect("mongodb://localhost/books_db");
+mongoose.connect(
+  "mongodb://GrahamUser:myNameis1@ds151626.mlab.com:51626/heroku_78gws1sf"
+);
+
 var db = require("./models/Book");
 // Define API routes here
 
